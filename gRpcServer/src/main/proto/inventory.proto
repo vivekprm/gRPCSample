@@ -1,0 +1,33 @@
+// Using protobuffer 3
+syntax = "proto3";
+package com.grpc;
+import "google/protobuf/wrappers.proto";
+
+// These are services.
+service InventoryService {
+    // If we do returns stream Items we get bidirectional streams in gRPC.
+   rpc getItemByName(google.protobuf.StringValue) returns (Items);
+   rpc getItemByID(google.protobuf.StringValue) returns (Item);
+   rpc addItem(Item) returns (google.protobuf.BoolValue);
+}
+
+// We can also define enums
+// enum Sentiment {HAPPY = 0; HUNGRY = 1; ANGRY = 2;}
+
+// These are payloads.
+message Items {
+   string itemDesc = 1;
+   // Repeated for list of items.
+   repeated Item items = 2;
+   // To define map
+   // map<string, string> bagOfTricks = 3;
+   // Using enum
+   // Sentiment sentiment = 4
+}
+
+message Item {
+    // 1 is the binary representation of this id field in the message.
+    string id = 1;
+    string name = 2;
+    string description = 3;
+}

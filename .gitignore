@@ -1,0 +1,12 @@
+.idea/**
+gRpcServer/out/**
+gRpcServer/build/**
+gRpcServer/gradle/**
+gRpcServer/.gradle/**
+gRpcServer/generated-sources/**
+
+gRpcConsumer/out/**
+gRpcConsumer/build/**
+gRpcConsumer/gradle/**
+gRpcConsumer/.gradle/**
+gRpcConsumer/generated-sources/**
